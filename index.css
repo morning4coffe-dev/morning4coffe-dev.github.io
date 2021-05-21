@@ -1,0 +1,18 @@
+.main_image
+{
+  align-self: center;
+  border-radius: 10px;
+}
+
+.main_header
+{
+  font-size: 35px;
+  color: #ffffff;
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
