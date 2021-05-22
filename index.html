@@ -6,22 +6,41 @@
         <meta charset='utf-8'>
         <link rel='stylesheet' media='screen' href="index.css">
         <link rel='stylesheet' media='screen' href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
       </head>
 
     <body>
-        <img class="main_image" src="website-main-background-image.jpg" />
-        <div class="main_header">Moje stránka o počítačových hrách<br/>
-          <table align="center" style="position: relative; top: 10px;">
-            <tr>
-              <td>
-                <button class="main_button" style="margin: 5px;" onclick="location.href='#games_grid_title'">Seznam her</button>
-              </td>
-              <td>
-                <button class="main_button" style="margin: 5px;" onclick="location.href='MyWebsite_SignIn.html'"><a>Přihlásit se</a></button>
-              </td>
-            </tr>
-          </table>
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-16by9">
+            <img src="website-main-background-image.jpg" alt="Placeholder image">
+          </figure>
         </div>
+        <div class="card-content is-overlay">
+          <div>
+            <div class="main_header">Morning4coffe</div>
+            <div class="main_header_text">
+              Hi, my name is Coffe. I am a high school student. 
+              <br/>
+              I am currently working on Storylines and Fortune Teller.
+            </div>
+            <table style="position: relative; top: 320px; left: 11.7%;">
+              <tr>
+                <td>
+                  <button onclick="location.href='https://github.com/morning4coffe-dev'" class="social_button"><img style="margin-top: 4px;" src="Images/Icons/github-logo-white.png"/></button>
+                </td>
+                <td>
+                  <button onclick="location.href='https://twitter.com/morning4coffe'" class="social_button"><img style="margin-top: 4px;" src="Images/Icons/twitter-logo-white.png"/></button>
+                </td>
+                <td>
+                  <button onclick="location.href='MyWebsite_SignIn.html'" class="social_button"><img style="margin-top: 4px;" src="Images/Icons/patreon-logo-white.png"/></button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
     </body>
-
 </html>
