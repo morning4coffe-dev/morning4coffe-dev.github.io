@@ -1,46 +1,72 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Morning4coffe</title>
-        <meta charset='utf-8'>
-        <link rel='stylesheet' media='screen' href="index.css">
-        <link rel='stylesheet' media='screen' href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<head>
+  <title>Morning4coffe</title>
+  <meta charset='utf-8'>
+  <link rel='stylesheet' media='screen' href="index.css">
+  <link rel='stylesheet' media='screen' href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-      </head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
 
-    <body>
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-16by9">
-            <img src="Images/Backgrounds/website-main-background-image.jpg" alt="Placeholder image">
-          </figure>
-        </div>
-        <div class="card-content is-overlay">
-          <div>
-            <div class="main_header">Morning4coffe</div>
-            <div class="main_header_text">
-              Hi, my name is Coffe. I am a high school student. 
-              <br/>
-              I am currently working on Storylines and Fortune Teller.
-            </div>
-            <table style="position: relative; top: 320px; left: 11.7%;">
-              <tr>
-                <td>
-                  <button onclick="location.href='https://github.com/morning4coffe-dev'" class="social_button"><img style="margin-top: 4px;" src="Images/Icons/github-logo-white.png"/></button>
-                </td>
-                <td>
-                  <button onclick="location.href='https://twitter.com/morning4coffe'" class="social_button"><img style="margin-top: 4px;" src="Images/Icons/twitter-logo-white.png"/></button>
-                </td>
-                <td>
-                  <button onclick="location.href='MyWebsite_SignIn.html'" class="social_button"><img style="margin-top: 4px;" src="Images/Icons/patreon-logo-white.png"/></button>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
+<body>
+  <section class="hero is-danger is-fullheight">
+    <div class="hero-body" style="background-image: url('Images/Backgrounds/website-main-background-image.jpg')">
+      <div class="">
+        <p class="title">
+          Morning4coffe
+        </p>
+        <p class="subtitle">
+          Hi, I am Coffe.
+          I am the creator of Storylines and Fortune Teller.
+        </p>
+        <p class="buttons">
+          <button class="button is-medium" onclick="location.href='https://twitter.com/morning4coffe'"
+            style="background-color: transparent; width:47px; height: 45px;">
+            <span class="icon is-small">
+              <image src="Images/Icons/twitter-logo-white.png"></image>
+            </span>
+          </button>
+        </p>
       </div>
-    </body>
+    </div>
+  </section>
+
+  <div class="tile is-ancestor">
+    <div class="tile is-6 is-horizontal">
+      <div class="tile is-child box">
+        <img src="Images/Backgrounds/website-main-background-image.jpg"/>
+        <p class="title">First</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+      </div>
+      <div class="tile is-child box">
+        <img src="Images/Backgrounds/website-main-background-image.jpg"/>
+        <p class="title">Second</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tile is-ancestor">
+    <div class="tile is-parent">
+      <div class="tile is-child box">
+        <p class="title">Three</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
+        <p>Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget varius ligula, at volutpat tortor.</p>
+        <p>Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet lacus, quis faucibus libero. Quisque non semper leo.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Morning4coffe © 2021</strong> <strong><a href="https://twitter.com/morning4coffe">Twitter</a></strong> • <strong><a href="https://github.com/morning4coffe-dev/">GitHub</a></strong>.
+      </p>
+    </div>
+  </footer>
+</body>
+
 </html>

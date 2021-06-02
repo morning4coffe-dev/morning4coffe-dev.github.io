@@ -1,26 +1,8 @@
-.main_header
+.hero_background
 {
-  font-size: 35px;
-  color: #ffffff;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: bold;
-  text-align: left;
-  position: relative;
-
-  left: 12%;
-  top: 300px;
-}
-
-.main_header_text
-{
-  font-size: 22px;
-  color: #ffffff;
-  font-family: 'Quicksand', sans-serif;
-  text-align: left;
-  position: relative;
-
-  left: 12%;
-  top: 310px;
+    background-image: url(Images/Backgrounds/website-main-background-image.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .social_button
