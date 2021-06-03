@@ -1,8 +1,13 @@
 .hero_background
 {
     background-image: url(Images/Backgrounds/website-main-background-image.jpg);
-    background-size: 100% 100%;
+    background-size: auto;
     background-repeat: no-repeat;
+}
+
+.tile_image
+{
+  border-radius: 8px;
 }
 
 .social_button
