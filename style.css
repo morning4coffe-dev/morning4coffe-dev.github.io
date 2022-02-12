@@ -1,7 +1,16 @@
-html {height:100%;}
+body,
+h1 {
+  font-family: "Raleway", sans-serif
+}
 
-body {height:100%;}
+body,
+html {
+  height: 100%
+}
 
-.hero {height:100%;width:100%;background:#000;padding-bottom: 20px; background-image: url('');}
-
-.card-section {width:80%;margin: auto;}
+.bgimg {
+  background-image: url('https://images.unsplash.com/photo-1536854614829-3f8da6581bb4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1571&q=80');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
