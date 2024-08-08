@@ -1,40 +1,44 @@
-<!DOCTYPE html>
-<html>
-<title>Morning4coffe</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="favicon" content="https://avatars.githubusercontent.com/u/78549750?s=400&u=bd0c84864c2f219a030afdd31557bfd4f3d08077&v=4">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/78549750?s=400&u=bd0c84864c2f219a030afdd31557bfd4f3d08077&v=4">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="modulepreload" href="./_app/immutable/entry/start.esNWkx9x.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.t3-sm-pw.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.D9xsQs6S.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.CP9Aw6pc.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.DkBX_zpY.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.Ds3tS0cG.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.lHc12d17.js"><title>Hello World</title><!-- HEAD_svelte-1dfh84z_START --><meta name="description" content="This is my SvelteKit page"><link href="https://cdn.jsdelivr.net/npm/beercss@3.6.13/dist/cdn/beer.min.css" rel="stylesheet"><script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.6.13/dist/cdn/beer.min.js" data-svelte-h="svelte-l15z95"></script><script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.2/dist/cdn/material-dynamic-colors.min.js" data-svelte-h="svelte-1mxzozf"></script><!-- HEAD_svelte-1dfh84z_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">   <body class="dark" data-svelte-h="svelte-7xfbc2"><main class="responsive"><img src="https://www.beercss.com/beer-and-woman.svg" class="responsive round" alt="Beer and Woman"> <h3>Welcome</h3> <h5>The beer is ready!</h5></main></body> 
+			
+			<script>
+				{
+					__sveltekit_splklw = {
+						base: new URL(".", location).pathname.slice(0, -1)
+					};
 
-<meta name="theme-color" content="#3B8383">
-<meta name="msapplication-navbutton-color" content="#3B8383">
-<meta name="apple-mobile-web-app-status-bar-style" content="#3B8383">
+					const element = document.currentScript.parentElement;
 
-<body>
+					const data = [null,null];
 
-  <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-    <div class="w3-display-topleft w3-padding-large w3-xlarge">
-      <img id="header-img" src="https://avatars.githubusercontent.com/u/78549750?s=400&u=bd0c84864c2f219a030afdd31557bfd4f3d08077&v=4" alt="Morning4coffe's logo"/>
-    </div>
-    <div class="w3-display-middle">
-      <h1 class="w3-jumbo w3-animate-top">Morning4coffe</h1>
-      <hr class="w3-border-grey" style="margin:auto;width:40%">
-      <p class="w3-large w3-center">A developer and tech lover from Czech Republic</p>
-      <!--<button class="w3-button">Projects</button>-->
-    </div>
-    <div class="w3-display-bottomleft w3-padding-large">
-      <ul style="list-style-type:none">
-        <li><a class="icon-link" href="https://twitter.com/morning4coffe" target="_blank"><i class="fa-brands fa-twitter" style="font-size:35px;"></i></a></li>
-        <li><a class="icon-link" href="https://github.com/morning4coffe-dev" target="_blank"><i class="fa-brands fa-github" style="font-size:35px;"></i></a></li>
-        <li><a class="icon-link" href="https://medium.com/@morning4coffe" target="_blank"><i class="fa-brands fa-medium" style="font-size:35px;"></i></a></li>
-      </ul>
-    </div>
-  </div>
-
-</body>
-
+					Promise.all([
+						import("./_app/immutable/entry/start.esNWkx9x.js"),
+						import("./_app/immutable/entry/app.CP9Aw6pc.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
 </html>
