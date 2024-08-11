@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Recurrents",
+    "logo": "https://www.beercss.com/beer-and-woman.svg",
+    "repo": "morning4coffe-dev/recurrents",
+    "description": "A project description",
+    "content": "Project content here.",
+    "buttonText": "View Details"
+  },
+  {
+    "title": "Storylines",
+    "logo": "https://www.beercss.com/beer-and-woman.svg",
+    "repo": "morning4coffe-dev/storylines",
+    "description": "Another project description",
+    "content": "More project content here.",
+    "buttonText": "View Details"
+  }
+]
