@@ -1,58 +1,26 @@
 <script lang="ts">
-  import { link } from 'svelte-spa-router';
-  import { onMount } from 'svelte';
-  import localProjects from './projects.json';
+  import { link } from "svelte-spa-router";
+  import { onMount } from "svelte";
+  import localProjects from "./projects.json";
+  import { fetchProjectData } from "./main.js";
 
   let projects = [...localProjects];
+  let isLoading = true;
 
-  async function fetchReadmeAndDescription(owner: string, repo: string, projectTitle: string): Promise<void> {
-    try {
-      const readmeUrl = `https://api.github.com/repos/${owner}/${repo}/readme`;
-      const readmeResponse = await fetch(readmeUrl, {
-        headers: {
-          Accept: 'application/vnd.github.v3+json',
-        },
-      });
+  async function updateProjectData() {
+    for (let project of projects) {
+      const [owner, repo] = project.repo.split("/");
+      console.log("Fetching data for:", project.repo);
 
-      let readmeContent = '';
-      if (readmeResponse.ok) {
-        const readmeData = await readmeResponse.json();
-        readmeContent = atob(readmeData.content);
-      } else {
-        console.error('Error fetching README:', readmeResponse.statusText);
-      }
-
-      const repoUrl = `https://api.github.com/repos/${owner}/${repo}`;
-      const repoResponse = await fetch(repoUrl, {
-        headers: {
-          Accept: 'application/vnd.github.v3+json',
-        },
-      });
-
-      let repoDescription = '';
-      if (repoResponse.ok) {
-        const repoData = await repoResponse.json();
-        repoDescription = repoData.description || '';
-      } else {
-        console.error('Error fetching repository description:', repoResponse.statusText);
-      }
-
-      projects = projects.map((project) =>
-        project.title === projectTitle
-          ? { ...project, content: readmeContent, description: repoDescription }
-          : project,
-      );
-    } catch (error) {
-      console.error('Error fetching data:', error);
+      const data = await fetchProjectData(owner, repo);
+      project.description = data.description;
+      project.content = data.content;
     }
+    isLoading = false;
   }
 
   onMount(() => {
-    localProjects.forEach((project) => {
-      const [owner, repo] = project.repo.split('/');
-      console.log('Fetching data for:', project.repo);
-      fetchReadmeAndDescription(owner, repo, project.title);
-    });
+    updateProjectData();
   });
 </script>
 
@@ -74,6 +42,8 @@
     <div class="row header-row center-align">
       <div class="column s12 m6">
         <h1>Hey 👋, <br />I'm Coffe</h1>
+        <button class="tertiary">software engineer</button>
+        <button class="border">gamer</button>
       </div>
       <div class="column s12 m6 image-container">
         <img
@@ -84,38 +54,119 @@
       </div>
     </div>
 
-    <h5>My Projects</h5>
+    <h5 class="projects-header">My Projects</h5>
+
+    {#if isLoading}
+      <div class="center-align">
+        <progress class="circle center-align" />
+        <p>Loading projects...</p>
+      </div>
+    {:else}
+      <div class="grid">
+        {#each projects as project (project.title)}
+          <article class="s12 m6 l4 project-card">
+            <div class="project-content">
+              <div class="row">
+                <img
+                  class="large icon round"
+                  src={project.logo}
+                  alt={project.title}
+                />
+                <div class="max">
+                  <h6>{project.title}</h6>
+                  <p class="description-truncate">{project.description}</p>
+                </div>
+              </div>
+              <nav class="project-footer">
+                <a href={`/${project.title.toLowerCase()}`} use:link>
+                  <button class="primary">Details</button>
+                </a>
+              </nav>
+            </div>
+          </article>
+        {/each}
+      </div>
+    {/if}
+
+    <!--<h5 class="projects-header">Websites</h5>
 
     <div class="grid">
       {#each projects as project (project.title)}
-        <article class="s12 m6 l4">
-          <div class="row">
-            <img class="large" src={project.logo} alt={project.title} />
-            <div class="max">
-              <h6>{project.title}</h6>
-              <p class="description-truncate">{project.description}</p>
+        <article class="s12 m6 l4 project-card">
+          <div class="project-content">
+            <div class="row">
+              <img
+                class="large icon round"
+                src={project.logo}
+                alt={project.title}
+              />
+              <div class="max">
+                <h6>{project.title}</h6>
+                <p class="description-truncate">{project.description}</p>
+              </div>
             </div>
+            <nav class="project-footer">
+              <a href={`/${project.title.toLowerCase()}`} use:link>
+                <button class="primary">Details</button>
+              </a>
+            </nav>
           </div>
-          <nav>
-            <a href={`/${project.title.toLowerCase()}`} use:link>
-              <button>Details</button>
-            </a>
-          </nav>
         </article>
       {/each}
-    </div>
+    </div>-->
   </main>
 </body>
 
 <style>
+  .header-row {
+    padding: 180px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-row h1 {
+    margin: 0;
+    font-size: 4.5rem;
+  }
+
+  .header-row button {
+    margin: 10px;
+  }
+
+  .projects-header {
+    margin: 36px 0px;
+  }
+
+  .project-card {
+    display: flex;
+  }
+
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 12px 8px;
+  }
+
+  .project-footer {
+    margin-top: 12px;
+  }
+
+  .icon {
+    max-height: 80px;
+    object-fit: contain;
+  }
+
   .image-container {
     max-width: 200px;
     aspect-ratio: 1 / 1;
-    position: relative;
   }
 
   .description-truncate {
     display: -webkit-box;
+    line-clamp: 3;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -126,10 +177,15 @@
   @media (max-width: 600px) {
     .header-row {
       flex-direction: column;
+      padding: 50px 0px;
     }
 
-    .image-container {
+    .header-row img {
       margin-bottom: 20px;
+    }
+
+    .projects-header {
+      margin: 10px 0px;
     }
   }
 </style>

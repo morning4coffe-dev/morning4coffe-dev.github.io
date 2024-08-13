@@ -1,18 +1,16 @@
 [
   {
     "title": "Recurrents",
-    "logo": "https://www.beercss.com/beer-and-woman.svg",
+    "logo": "https://github.com/morning4coffe-dev/recurrents/blob/0f9c31020bad191e93025adec73f947c13ba6e9b/Assets/hero.png?raw=true",
     "repo": "morning4coffe-dev/recurrents",
     "description": "A project description",
-    "content": "Project content here.",
-    "buttonText": "View Details"
+    "content": "Project content here."
   },
   {
     "title": "Storylines",
-    "logo": "https://www.beercss.com/beer-and-woman.svg",
+    "logo": "https://github.com/morning4coffe-dev/storylines/blob/main/Logo%20and%20Screenshots/Storylines-icon.png?raw=true",
     "repo": "morning4coffe-dev/storylines",
-    "description": "Another project description",
-    "content": "More project content here.",
-    "buttonText": "View Details"
+    "description": "A project description",
+    "content": "Project content here."
   }
 ]

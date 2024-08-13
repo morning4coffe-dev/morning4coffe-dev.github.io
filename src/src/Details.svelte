@@ -1,19 +1,39 @@
 <script>
   import { onMount } from "svelte";
   import { params } from "svelte-spa-router";
-  import projects from "./projects.json";
+  import localProjects from "./projects.json";
+  import { fetchProjectData } from "./main.js";
+  import SvelteMarkdown from "svelte-markdown";
 
-  let project = {};
+  let project = {
+    title: "",
+    description: "",
+    content: "",
+  };
+
+  function removeImagesFromContent(content) {
+    return content.replace(/!\[.*?\]\(.*?\)/g, "");
+  }
+
+  async function fetchProjectDetails(id) {
+    const foundProject = localProjects.find(
+      (p) => p.title.toLowerCase() === id.toLowerCase()
+    );
+    if (foundProject) {
+      const [owner, repo] = foundProject.repo.split("/");
+      const data = await fetchProjectData(owner, repo);
+      project = {
+        ...foundProject,
+        description: data.description,
+        content: removeImagesFromContent(data.content),
+      };
+    }
+  }
 
   onMount(() => {
-    const unsubscribe = params.subscribe(p => {
+    const unsubscribe = params.subscribe((p) => {
       if (p && p.id) {
-        console.log("Params:", p);
-        const itemId = p.id.toString();
-        project = projects.find(i => i.title.toLowerCase().toString() === itemId) || {};
-        console.log("Fetched Item:", projects);
-      } else {
-        console.log("Params or Params.id is undefined");
+        fetchProjectDetails(p.id);
       }
     });
 
@@ -36,8 +56,11 @@
 
 <body class="dark">
   <main class="responsive">
-    <img class="large responsive round" src={project.logo} alt={project.title} />
-    <h2>{project.title}</h2>
-    <p class="description-truncate">{project.description}</p>
+    <img
+      class="large responsive round"
+      src={project.logo}
+      alt={project.title}
+    />
+    <SvelteMarkdown source={project.content} />
   </main>
 </body>
