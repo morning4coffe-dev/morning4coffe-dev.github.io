@@ -26,10 +26,7 @@
     position: absolute;
     right: 20px;
     bottom: 60px;
-    font-size: 5rem;
     cursor: pointer;
-    color: #fff;
-    padding: 10px;
   }
 
   .header-row h1 {
