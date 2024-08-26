@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { params } from "svelte-spa-router";
   import localProjects from "./projects.json";
-  import { fetchProjectData } from "./main.js";
+  import { fetchProjectData } from "./main.ts";
   import SvelteMarkdown from "svelte-markdown";
 
   let project = {

@@ -11,6 +11,7 @@
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
     /**
      * To have warnings / errors of the Svelte compiler at the
      * correct position, enable source maps by default.
@@ -22,11 +23,13 @@
      * Typecheck JS in `.svelte` and `.js` files by default.
      * Disable this if you'd like to use dynamic types.
      */
-    "checkJs": true
+    "checkJs": true,
+    "noEmit": true
   },
   /**
    * Use global.d.ts instead of compilerOptions.types
    * to avoid limiting type declarations.
    */
-  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte"]
+   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.svelte"],
+   "exclude": ["node_modules"]
 }

@@ -1,1 +1,106 @@
 /* app.css */
+
+  .header-row {
+    padding: 180px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .full-screen {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  main {
+    scroll-snap-type: y mandatory;
+    overflow: hidden;
+  }
+
+  section {
+    scroll-snap-align: start;
+  }
+
+  .scroll-arrow {
+    position: absolute;
+    right: 20px;
+    bottom: 60px;
+    font-size: 5rem;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px;
+  }
+
+  .header-row h1 {
+    margin: 0;
+    font-size: 4.5rem;
+  }
+
+  .header-row button {
+    margin: 10px;
+  }
+
+  .projects-section {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .projects-header {
+    margin: 36px 0;
+  }
+
+  .project-card {
+    display: flex;
+  }
+
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 12px 8px;
+  }
+
+  .project-footer {
+    margin-top: 12px;
+  }
+
+  .icon {
+    max-height: 80px;
+    object-fit: contain;
+  }
+
+  .image-container {
+    max-width: 200px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .description-truncate {
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    .header-row {
+      flex-direction: column;
+      padding: 50px 0;
+    }
+
+    .header-row img {
+      margin-bottom: 20px;
+    }
+
+    .projects-header {
+      margin: 10px 0;
+    }
+  }

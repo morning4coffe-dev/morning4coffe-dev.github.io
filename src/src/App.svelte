@@ -15,4 +15,15 @@
   };
 </script>
 
+<svelte:head>
+  <link
+    href="https://cdn.jsdelivr.net/npm/beercss@3.6.13/dist/cdn/beer.min.css"
+    rel="stylesheet"
+  />
+  <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/beercss@3.6.13/dist/cdn/beer.min.js"
+  ></script>
+</svelte:head>
+
 <Router {routes} />
