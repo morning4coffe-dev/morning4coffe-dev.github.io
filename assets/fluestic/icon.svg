@@ -1,0 +1,17 @@
+<svg width="256" height="256" viewBox="9.5 10.4 77 77" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="icon-title">
+  <title id="icon-title">Fluestic shield and restore arrow</title>
+  <defs>
+    <linearGradient id="shieldFill" x1="21" y1="13" x2="75" y2="86" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6BBEFF"/>
+      <stop offset="0.5" stop-color="#2F73E8"/>
+      <stop offset="1" stop-color="#2E2CA8"/>
+    </linearGradient>
+    <linearGradient id="shieldGloss" x1="48" y1="12" x2="48" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M20.9 17 Q48 12.4 75.1 17 Q81.5 18 81.5 24 L81.5 46 C81.5 63 68 76.3 50.7 84.4 Q48 85.8 45.3 84.4 C28 76.3 14.5 63 14.5 46 L14.5 24 Q14.5 18 20.9 17 Z" fill="url(#shieldFill)"/>
+  <path d="M20.9 17 Q48 12.4 75.1 17 Q81.5 18 81.5 24 L81.5 46 C81.5 63 68 76.3 50.7 84.4 Q48 85.8 45.3 84.4 C28 76.3 14.5 63 14.5 46 L14.5 24 Q14.5 18 20.9 17 Z" fill="url(#shieldGloss)"/>
+  <path d="M59.434 31.026 A19 19 0 1 1 36.566 31.026 L34.399 28.151 L45.88 28.765 L43.306 39.971 L41.139 37.096 A11.4 11.4 0 1 0 54.861 37.096 A3.8 3.8 0 0 1 59.434 31.026 Z" fill="#FFFFFF"/>
+</svg>
