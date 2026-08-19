@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("./fonts/bricolage-grotesque-variable.ttf") format("truetype-variations");
+  font-style: normal;
+  font-weight: 200 800;
+  font-stretch: 75% 100%;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light dark;
   --page: #f5f7fb;
@@ -11,11 +20,12 @@
   --brand: #db651e;
   --brand-strong: #ad430f;
   --focus: #246bfd;
-  --shadow: 0 24px 70px rgba(34, 49, 76, 0.13);
-  --shadow-small: 0 12px 32px rgba(34, 49, 76, 0.1);
-  --radius-large: 2rem;
-  --radius: 1.25rem;
+  --shadow: 0 24px 70px -16px rgba(34, 49, 76, 0.2);
+  --shadow-small: 0 12px 32px -10px rgba(34, 49, 76, 0.17);
+  --radius-large: 1rem;
+  --radius: 0.875rem;
   --shell: 74rem;
+  --font-display: "Bricolage Grotesque", "Segoe UI Variable Display", "Segoe UI", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,6 +48,8 @@
 
 * {
   box-sizing: border-box;
+  scrollbar-color: var(--border) transparent;
+  scrollbar-width: thin;
 }
 
 html {
@@ -56,6 +68,23 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+::selection {
+  color: var(--surface-solid);
+  background: var(--text);
+}
+
+::-webkit-scrollbar {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0.2rem solid transparent;
+  border-radius: 999px;
+  background: var(--border);
+  background-clip: padding-box;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -63,6 +92,8 @@ img {
 
 a {
   color: inherit;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
 }
 
 a:focus-visible,
@@ -102,6 +133,7 @@ button:focus-visible {
   align-items: center;
   gap: 0.75rem;
   color: var(--text);
+  font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 780;
   letter-spacing: -0.02em;
@@ -164,6 +196,13 @@ button:focus-visible {
 
 h1,
 h2,
+h3 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+h1,
+h2,
 h3,
 p {
   text-wrap: pretty;
@@ -174,16 +213,16 @@ p {
 .document h1 {
   margin: 0;
   line-height: 0.98;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.04em;
 }
 
 .publisher-hero h1 {
   max-width: 12ch;
-  font-size: clamp(3.2rem, 8vw, 7rem);
+  font-size: clamp(3.2rem, 8vw, 6rem);
 }
 
 .product-hero h1 {
-  font-size: clamp(3.25rem, 7vw, 6rem);
+  font-size: clamp(3.25rem, 7vw, 5.75rem);
 }
 
 .hero-copy,
@@ -224,6 +263,10 @@ p {
   transform: translateY(-0.12rem);
   border-color: color-mix(in srgb, var(--project-accent, var(--brand)) 48%, var(--border));
   box-shadow: 0 16px 38px color-mix(in srgb, var(--project-accent, var(--brand)) 18%, transparent);
+}
+
+.button:active {
+  transform: translateY(0);
 }
 
 .button.primary {
@@ -281,19 +324,25 @@ p {
 }
 
 .stack-card {
+  --rotation: 0deg;
   position: absolute;
   display: flex;
   align-items: center;
   gap: 1rem;
   width: min(100%, 22rem);
   padding: 1.15rem;
-  border: 1px solid var(--border);
-  border-radius: 1.4rem;
+  border: 0;
+  border-radius: var(--radius);
   background: var(--surface);
   color: var(--text);
   box-shadow: var(--shadow);
   text-decoration: none;
   backdrop-filter: blur(1rem);
+  transform: rotate(var(--rotation));
+  transition:
+    transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 180ms ease,
+    background-color 180ms ease;
 }
 
 .stack-card img {
@@ -314,24 +363,34 @@ p {
 }
 
 .stack-card:nth-child(1) {
+  --rotation: 4deg;
   z-index: 3;
   top: 0;
   right: 0;
-  transform: rotate(4deg);
 }
 
 .stack-card:nth-child(2) {
+  --rotation: -3deg;
   z-index: 2;
   top: 9rem;
   left: 0;
-  transform: rotate(-3deg);
 }
 
 .stack-card:nth-child(3) {
+  --rotation: 2deg;
   z-index: 1;
   right: 1rem;
   bottom: 0;
-  transform: rotate(2deg);
+}
+
+.stack-card:hover {
+  transform: translateY(-0.3rem) rotate(var(--rotation)) scale(1.01);
+  background: var(--surface-solid);
+  box-shadow: 0 26px 56px -18px rgba(34, 49, 76, 0.28);
+}
+
+.stack-card:active {
+  transform: rotate(var(--rotation));
 }
 
 .section {
@@ -352,7 +411,7 @@ p {
   margin: 0;
   font-size: clamp(2.1rem, 5vw, 4rem);
   line-height: 1.02;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.035em;
 }
 
 .section-heading p {
@@ -383,10 +442,9 @@ p {
 .document,
 .cta-panel,
 .fact-strip {
-  border: 1px solid var(--border);
+  border: 0;
   background: var(--surface);
   box-shadow: var(--shadow-small);
-  backdrop-filter: blur(1rem);
 }
 
 .project-card {
@@ -468,6 +526,14 @@ p {
   border-radius: var(--radius);
 }
 
+.feature-card {
+  padding: 1.35rem 0 0;
+  border-top: 2px solid color-mix(in srgb, var(--project-accent, var(--brand)) 38%, var(--border));
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
 .feature-card h3,
 .support-card h2 {
   margin: 0 0 0.55rem;
@@ -512,16 +578,17 @@ p {
 
 .screenshot-frame {
   overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 1.35rem;
+  border: 0;
+  border-radius: var(--radius);
   background: var(--surface-solid);
   box-shadow: var(--shadow);
 }
 
 .screenshot-frame img {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 .fact-strip {
@@ -589,7 +656,7 @@ p {
 }
 
 .document h1 {
-  font-size: clamp(2.6rem, 7vw, 5rem);
+  font-size: clamp(2.6rem, 7vw, 4.75rem);
 }
 
 .document h2 {
@@ -610,7 +677,6 @@ p {
   margin-block: 2rem;
   padding: 1.2rem 1.35rem;
   border: 1px solid color-mix(in srgb, var(--project-accent, var(--brand)) 35%, var(--border));
-  border-left: 0.3rem solid var(--project-accent, var(--brand));
   border-radius: 0.75rem;
   background: color-mix(in srgb, var(--project-accent, var(--brand)) 8%, var(--surface-solid));
 }
@@ -660,7 +726,7 @@ p {
   margin: 0;
   font-size: clamp(5rem, 20vw, 12rem);
   line-height: 0.8;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.04em;
 }
 
 .not-found p {
@@ -726,16 +792,36 @@ p {
   }
 
   .hero-stage {
-    min-height: 23rem;
+    min-height: 24rem;
   }
 
   .stack-card {
-    width: 90%;
+    width: 92%;
+  }
+
+  .stack-card:nth-child(1) {
+    top: 0;
+    right: 0;
+  }
+
+  .stack-card:nth-child(2) {
+    top: 7.8rem;
+    left: 0;
+  }
+
+  .stack-card:nth-child(3) {
+    top: 15.6rem;
+    right: 0;
+    bottom: auto;
   }
 
   .stack-card img {
     width: 3.6rem;
     height: 3.6rem;
+  }
+
+  .product-visual::before {
+    inset: 0 0 -0.8rem 0.8rem;
   }
 
   .gallery {
@@ -753,7 +839,8 @@ p {
   }
 
   .button,
-  .project-card {
+  .project-card,
+  .stack-card {
     transition: none;
   }
 }
